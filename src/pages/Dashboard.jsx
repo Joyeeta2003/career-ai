@@ -3,6 +3,7 @@ import dashboardStats from "../data/dashboardStats"
 import StatsCard from "../components/StatsCard"
 import Topbar from "../components/Topbar"
 import AnalyticsChart from "../components/AnalyticsChart"
+import ResumeUpload from "../components/ResumeUpload"
 
 function Dashboard() {
     return (
@@ -42,6 +43,7 @@ function Dashboard() {
                 </div>
 
                 <AnalyticsChart />
+                <ResumeUpload />
 
             </div>
 

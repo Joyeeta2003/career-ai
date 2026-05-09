@@ -1,5 +1,6 @@
 import ResumeUpload from "../components/ResumeUpload"
 import ATSScoreCard from "../components/ATSScoreCard"
+import MissingSkills from "../components/MissingSkills"
 
 function ResumeAnalysis() {
   return (
@@ -7,6 +8,7 @@ function ResumeAnalysis() {
 
       <ResumeUpload />
       <ATSScoreCard />
+      <MissingSkills />
 
     </div>
   )

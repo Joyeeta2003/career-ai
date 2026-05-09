@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 function Sidebar() {
   return (
     <div className="w-72 min-h-screen bg-white/5 border-r border-white/10 p-8">
@@ -7,24 +9,56 @@ function Sidebar() {
         Career AI
       </h1>
 
-      {/* Navigation */}
       <div className="space-y-4">
 
-        <button className="w-full text-left px-5 py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 font-semibold">
+        <NavLink
+          to="/dashboard"
+          end
+          className={({ isActive }) =>
+            `block px-5 py-4 rounded-2xl font-semibold transition ${isActive
+              ? "bg-gradient-to-r from-purple-500 to-blue-500"
+              : "hover:bg-white/5"
+            }`
+          }
+        >
           Dashboard
-        </button>
+        </NavLink>
 
-        <button className="w-full text-left px-5 py-4 rounded-2xl hover:bg-white/5 transition">
+        <NavLink
+          to="/dashboard/resume-analysis"
+          className={({ isActive }) =>
+            `block px-5 py-4 rounded-2xl font-semibold transition ${isActive
+              ? "bg-gradient-to-r from-purple-500 to-blue-500"
+              : "hover:bg-white/5"
+            }`
+          }
+        >
           Resume Analysis
-        </button>
+        </NavLink>
 
-        <button className="w-full text-left px-5 py-4 rounded-2xl hover:bg-white/5 transition">
+        <NavLink
+          to="/dashboard/internships"
+          className={({ isActive }) =>
+            `block px-5 py-4 rounded-2xl font-semibold transition ${isActive
+              ? "bg-gradient-to-r from-purple-500 to-blue-500"
+              : "hover:bg-white/5"
+            }`
+          }
+        >
           Internship Tracker
-        </button>
+        </NavLink>
 
-        <button className="w-full text-left px-5 py-4 rounded-2xl hover:bg-white/5 transition">
+        <NavLink
+          to="/dashboard/roadmap"
+          className={({ isActive }) =>
+            `block px-5 py-4 rounded-2xl font-semibold transition ${isActive
+              ? "bg-gradient-to-r from-purple-500 to-blue-500"
+              : "hover:bg-white/5"
+            }`
+          }
+        >
           Learning Roadmap
-        </button>
+        </NavLink>
 
       </div>
 

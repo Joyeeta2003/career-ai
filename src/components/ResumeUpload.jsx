@@ -1,14 +1,40 @@
 import { useState } from "react"
 
 function ResumeUpload() {
-  const [selectedFile, setSelectedFile] = useState(null)
-  const handleFileChange = (event) => {
+const [selectedFile, setSelectedFile] = useState(null)
+
+const [isDragging, setIsDragging] = useState(false)
+
+const handleFileChange = (event) => {
     const file = event.target.files[0]
 
     if (file) {
       setSelectedFile(file)
     }
   }
+
+const handleDragOver = (event) => {
+  event.preventDefault()
+
+  setIsDragging(true)
+}
+
+const handleDragLeave = () => {
+  setIsDragging(false)
+}
+
+const handleDrop = (event) => {
+  event.preventDefault()
+
+  setIsDragging(false)
+
+  const file = event.dataTransfer.files[0]
+
+  if (file) {
+    setSelectedFile(file)
+  }
+}
+
   return (
     <div className="bg-white/5 border border-white/10 rounded-3xl p-8 mt-10">
 
@@ -31,8 +57,18 @@ function ResumeUpload() {
       </div>
 
       {/* Upload Box */}
-      <div className="border-2 border-dashed border-white/10 rounded-3xl p-14 flex flex-col items-center justify-center text-center hover:border-purple-500 transition duration-300 cursor-pointer">
+<div
+  onDragOver={handleDragOver}
+  onDragLeave={handleDragLeave}
+  onDrop={handleDrop}
+  className={`border-2 border-dashed rounded-3xl p-14 flex flex-col items-center justify-center text-center transition duration-300 cursor-pointer
 
+  ${
+    isDragging
+      ? "border-purple-500 bg-purple-500/10"
+      : "border-white/10 hover:border-purple-500"
+  }`}
+>
         {/* Icon */}
         <div className="w-24 h-24 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-5xl mb-8">
 

@@ -1,5 +1,5 @@
 import internships from "../data/internships"
-
+import PageHeader from "../components/PageHeader"
 import InternshipCard from "../components/InternshipCard"
 
 function Internships() {
@@ -7,17 +7,10 @@ function Internships() {
     <div>
 
       {/* Header */}
-      <div className="mb-12">
-
-        <p className="text-purple-400 uppercase tracking-widest font-semibold">
-          Career Tracker
-        </p>
-
-        <h1 className="text-5xl font-bold mt-4">
-          Internship Applications
-        </h1>
-
-      </div>
+      <PageHeader
+  badge="Career Tracker"
+  title="Internship Applications"
+/>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

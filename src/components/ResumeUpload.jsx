@@ -1,4 +1,14 @@
+import { useState } from "react"
+
 function ResumeUpload() {
+  const [selectedFile, setSelectedFile] = useState(null)
+  const handleFileChange = (event) => {
+    const file = event.target.files[0]
+
+    if (file) {
+      setSelectedFile(file)
+    }
+  }
   return (
     <div className="bg-white/5 border border-white/10 rounded-3xl p-8 mt-10">
 
@@ -41,12 +51,38 @@ function ResumeUpload() {
           for ATS optimization and career insights.
         </p>
 
+        <input
+          type="file"
+          accept=".pdf,.doc,.docx"
+          onChange={handleFileChange}
+          className="hidden"
+          id="resumeUpload"
+        />
+
         {/* Upload Button */}
-        <button className="bg-gradient-to-r from-purple-500 to-blue-500 px-8 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300">
+        <label
+          htmlFor="resumeUpload"
+          className="bg-gradient-to-r from-purple-500 to-blue-500 px-8 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300 cursor-pointer"
+        >
 
           Upload Resume
 
-        </button>
+        </label>
+        {selectedFile && (
+
+          <div className="mt-6 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
+
+            <p className="text-green-400 font-medium">
+              Selected File:
+            </p>
+
+            <p className="text-gray-300 mt-1">
+              {selectedFile.name}
+            </p>
+
+          </div>
+
+        )}
 
         {/* File Info */}
         <p className="text-sm text-gray-500 mt-6">

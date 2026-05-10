@@ -7,7 +7,7 @@ import {
   Route,
 } from "lucide-react"
 
-function Sidebar() {
+function Sidebar({ closeSidebar }) {
   return (
     <div className="w-72 min-h-screen bg-white/5 border-r border-white/10 p-8">
 
@@ -23,6 +23,7 @@ function Sidebar() {
         <NavLink
           to="/dashboard"
           end
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `block px-5 py-4 rounded-2xl font-semibold transition ${
               isActive
@@ -43,6 +44,7 @@ function Sidebar() {
         {/* Resume Analysis */}
         <NavLink
           to="/dashboard/resume-analysis"
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `block px-5 py-4 rounded-2xl font-semibold transition ${
               isActive
@@ -63,6 +65,7 @@ function Sidebar() {
         {/* Internship Tracker */}
         <NavLink
           to="/dashboard/internships"
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `block px-5 py-4 rounded-2xl font-semibold transition ${
               isActive
@@ -83,6 +86,7 @@ function Sidebar() {
         {/* Learning Roadmap */}
         <NavLink
           to="/dashboard/roadmap"
+          onClick={closeSidebar}
           className={({ isActive }) =>
             `block px-5 py-4 rounded-2xl font-semibold transition ${
               isActive

@@ -2,16 +2,26 @@ import { useState } from "react"
 
 function ResumeUpload() {
 const [selectedFile, setSelectedFile] = useState(null)
-
 const [isDragging, setIsDragging] = useState(false)
+const [isAnalyzing, setIsAnalyzing] = useState(false)
+
 
 const handleFileChange = (event) => {
-    const file = event.target.files[0]
+  const file = event.target.files[0]
+  if (isAnalyzing) return
 
-    if (file) {
-      setSelectedFile(file)
-    }
+  if (file) {
+
+    setSelectedFile(file)
+
+    setIsAnalyzing(true)
+
+    setTimeout(() => {
+      setIsAnalyzing(false)
+    }, 3000)
+
   }
+}
 
 const handleDragOver = (event) => {
   event.preventDefault()
@@ -25,13 +35,21 @@ const handleDragLeave = () => {
 
 const handleDrop = (event) => {
   event.preventDefault()
-
+if (isAnalyzing) return
   setIsDragging(false)
 
   const file = event.dataTransfer.files[0]
 
   if (file) {
+
     setSelectedFile(file)
+
+    setIsAnalyzing(true)
+
+    setTimeout(() => {
+      setIsAnalyzing(false)
+    }, 3000)
+
   }
 }
 
@@ -98,27 +116,48 @@ const handleDrop = (event) => {
         {/* Upload Button */}
         <label
           htmlFor="resumeUpload"
-          className="bg-gradient-to-r from-purple-500 to-blue-500 px-8 py-4 rounded-2xl text-lg font-semibold hover:scale-105 transition duration-300 cursor-pointer"
-        >
+className={`px-8 py-4 rounded-2xl text-lg font-semibold transition duration-300 cursor-pointer
+
+${
+  isAnalyzing
+    ? "bg-gray-600 cursor-not-allowed opacity-50"
+    : "bg-gradient-to-r from-purple-500 to-blue-500 hover:scale-105"
+}`}        >
 
           Upload Resume
 
         </label>
-        {selectedFile && (
+        {isAnalyzing ? (
 
-          <div className="mt-6 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
+  <div className="mt-6 text-center">
 
-            <p className="text-green-400 font-medium">
-              Selected File:
-            </p>
+    <div className="w-10 h-10 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
 
-            <p className="text-gray-300 mt-1">
-              {selectedFile.name}
-            </p>
+    <p className="text-purple-400 mt-4 font-medium">
+      AI is analyzing your resume...
+    </p>
 
-          </div>
+  </div>
 
-        )}
+) : (
+
+  selectedFile && (
+
+    <div className="mt-6 bg-white/5 border border-white/10 rounded-2xl px-5 py-4">
+
+      <p className="text-green-400 font-medium">
+        Resume uploaded successfully
+      </p>
+
+      <p className="text-gray-300 mt-1">
+        {selectedFile.name}
+      </p>
+
+    </div>
+
+  )
+
+)}
 
         {/* File Info */}
         <p className="text-sm text-gray-500 mt-6">

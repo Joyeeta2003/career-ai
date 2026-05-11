@@ -60,18 +60,36 @@ const filteredInternships = internships.filter((item) => {
 </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {filteredInternships.length > 0 ? (
 
-        {filteredInternships.map((item, index) => (
-          <InternshipCard
-            key={index}
-            company={item.company}
-            role={item.role}
-            status={item.status}
-          />
-        ))}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-      </div>
+    {filteredInternships.map((item, index) => (
+      <InternshipCard
+        key={index}
+        company={item.company}
+        role={item.role}
+        status={item.status}
+      />
+    ))}
+
+  </div>
+
+) : (
+
+  <div className="bg-white/5 border border-white/10 rounded-3xl p-10 text-center">
+
+    <h2 className="text-2xl font-bold">
+      No internships found
+    </h2>
+
+    <p className="text-gray-400 mt-4">
+      Try changing your search or filter options.
+    </p>
+
+  </div>
+
+)}
 
     </div>
   )

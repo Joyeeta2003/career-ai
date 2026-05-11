@@ -1,9 +1,9 @@
 function Topbar() {
   return (
-    <div className="flex items-center justify-between mb-12">
+    <div className="flex items-center justify-end mb-12">
 
       {/* Search */}
-      <div className="w-full max-w-xl">
+      {/* <div className="w-full max-w-xl">
 
         <input
           type="text"
@@ -11,7 +11,7 @@ function Topbar() {
           className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-purple-500"
         />
 
-      </div>
+      </div> */}
 
       {/* Right Side */}
       <div className="flex items-center gap-5 ml-6">

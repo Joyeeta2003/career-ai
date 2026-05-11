@@ -7,7 +7,7 @@ const suggestions = [
 
 function AISuggestions() {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-3xl p-8 mt-10">
+    <div className="bg-white/5 border border-white/10 rounded-3xl p-8 mt-10  hover:border-purple-500/40 hover:-translate-y-1 transition-all duration-300">
 
       {/* Header */}
       <div className="mb-8">
@@ -32,7 +32,7 @@ function AISuggestions() {
         {suggestions.map((item, index) => (
           <div
             key={index}
-            className="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4 items-start"
+            className="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4 items-start  hover:border-purple-500/40 hover:-translate-y-1 transition-all duration-300"
           >
 
             {/* Icon */}

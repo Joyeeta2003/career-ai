@@ -11,8 +11,7 @@ function InternshipCard({ company, role, status }) {
   }
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
-
+<div className="bg-white/5 border border-white/10 rounded-3xl p-5 hover:border-purple-500/40 hover:-translate-y-1 transition-all duration-300">
       <h2 className="text-2xl font-bold">
         {company}
       </h2>

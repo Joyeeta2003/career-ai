@@ -3,8 +3,12 @@ import ATSScoreCard from "../components/ATSScoreCard"
 import MissingSkills from "../components/MissingSkills"
 import AISuggestions from "../components/AISuggestions"
 import PageHeader from "../components/PageHeader"
+import { useState } from "react"
+
 
 function ResumeAnalysis() {
+  const [analysisComplete, setAnalysisComplete] = useState(false)
+
   return (
     <div>
       <PageHeader
@@ -12,7 +16,7 @@ function ResumeAnalysis() {
   title="AI Resume Scanner"
   description="Upload your resume and receive AI-powered ATS analysis and improvement suggestions."
 />
-      <ResumeUpload />
+      <ResumeUpload setAnalysisComplete={setAnalysisComplete} />
       <ATSScoreCard />
       <MissingSkills />
       <AISuggestions />

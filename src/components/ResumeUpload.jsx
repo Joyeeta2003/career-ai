@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-function ResumeUpload() {
+
+function ResumeUpload({setAnalysisComplete }) {
 const [selectedFile, setSelectedFile] = useState(null)
 const [isDragging, setIsDragging] = useState(false)
 const [isAnalyzing, setIsAnalyzing] = useState(false)
-
 
 const handleFileChange = (event) => {
   const file = event.target.files[0]
@@ -16,9 +16,12 @@ const handleFileChange = (event) => {
 
     setIsAnalyzing(true)
 
-    setTimeout(() => {
-      setIsAnalyzing(false)
-    }, 3000)
+   setTimeout(() => {
+  setIsAnalyzing(false)
+
+  setAnalysisComplete(true)
+
+}, 3000)
 
   }
 }
@@ -35,8 +38,8 @@ const handleDragLeave = () => {
 
 const handleDrop = (event) => {
   event.preventDefault()
-if (isAnalyzing) return
   setIsDragging(false)
+  if (isAnalyzing) return
 
   const file = event.dataTransfer.files[0]
 
@@ -47,8 +50,11 @@ if (isAnalyzing) return
     setIsAnalyzing(true)
 
     setTimeout(() => {
-      setIsAnalyzing(false)
-    }, 3000)
+  setIsAnalyzing(false)
+
+  setAnalysisComplete(true)
+
+}, 3000)
 
   }
 }

@@ -25,10 +25,10 @@ function Sidebar({ closeSidebar }) {
           end
           onClick={closeSidebar}
           className={({ isActive }) =>
-            `block px-5 py-4 rounded-2xl font-semibold transition ${
+            `block px-5 py-4 rounded-2xl font-semibold transition-all duration-300 ${
               isActive
-                ? "bg-gradient-to-r from-purple-500 to-blue-500"
-                : "hover:bg-white/5"
+                ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-purple-300 shadow-lg shadow-purple-500/10"
+                : "hover:bg-white/10 hover:translate-x-1"
             }`
           }
         >
@@ -46,10 +46,10 @@ function Sidebar({ closeSidebar }) {
           to="/dashboard/resume-analysis"
           onClick={closeSidebar}
           className={({ isActive }) =>
-            `block px-5 py-4 rounded-2xl font-semibold transition ${
+            `block px-5 py-4 rounded-2xl font-semibold transition-all duration-300 ${
               isActive
-                ? "bg-gradient-to-r from-purple-500 to-blue-500"
-                : "hover:bg-white/5"
+                ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-purple-300 shadow-lg shadow-purple-500/10"
+                : "hover:bg-white/10 hover:translate-x-1"
             }`
           }
         >
@@ -67,10 +67,10 @@ function Sidebar({ closeSidebar }) {
           to="/dashboard/internships"
           onClick={closeSidebar}
           className={({ isActive }) =>
-            `block px-5 py-4 rounded-2xl font-semibold transition ${
+            `block px-5 py-4 rounded-2xl font-semibold transition-all duration-300 ${
               isActive
-                ? "bg-gradient-to-r from-purple-500 to-blue-500"
-                : "hover:bg-white/5"
+                ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-purple-300 shadow-lg shadow-purple-500/10"
+                : "hover:bg-white/10 hover:translate-x-1"
             }`
           }
         >
@@ -88,10 +88,10 @@ function Sidebar({ closeSidebar }) {
           to="/dashboard/roadmap"
           onClick={closeSidebar}
           className={({ isActive }) =>
-            `block px-5 py-4 rounded-2xl font-semibold transition ${
+            `block px-5 py-4 rounded-2xl font-semibold transition-all duration-300 ${
               isActive
-                ? "bg-gradient-to-r from-purple-500 to-blue-500"
-                : "hover:bg-white/5"
+                ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-purple-300 shadow-lg shadow-purple-500/10"
+                : "hover:bg-white/10 hover:translate-x-1"
             }`
           }
         >
